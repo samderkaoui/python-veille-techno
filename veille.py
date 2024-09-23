@@ -22,7 +22,8 @@ rss_urls = {
     "RHEL": "https://www.redhat.com/en/rss/blog",
     "JDHacker": "https://www.journalduhacker.net/rss",
     "Almalinux": "https://almalinux.org/blog/index.xml",
-    "Debian": "https://www.debian.org/News/news"
+    "Debian": "https://www.debian.org/News/news",
+    "AWS": "https://aws.amazon.com/fr/blogs/aws/feed/"
 }
 
 # Structure de base du fichier HTML pour chaque flux
@@ -111,7 +112,8 @@ for key, url in rss_urls.items():
         "RHEL": "RHEL",
         "JDHacker": "JDHacker",
         "Almalinux": "Almalinux",
-        "Debian": "Debian"
+        "Debian": "Debian",
+        "AWS": "AWS"
     }[key]
     html_content = generate_html(feed, title)
     
@@ -177,6 +179,9 @@ index_html = """
     </div>
     <div class="link">
         <a href="flux/Debian.html">Flux RSS Debian</a>
+    </div>
+    <div class="link">
+        <a href="flux/AWS.html">Flux RSS AWS</a>
     </div>
 </body>
 </html>
