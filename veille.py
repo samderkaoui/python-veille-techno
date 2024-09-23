@@ -20,7 +20,8 @@ rss_urls = {
     "docker": "https://www.docker.com/feed/",
     "kubernetes": "https://kubernetes.io/feed.xml",
     "RHEL": "https://www.redhat.com/en/rss/blog",
-    "JDHacker": "https://www.journalduhacker.net/rss"
+    "JDHacker": "https://www.journalduhacker.net/rss",
+    "Almalinux": "https://almalinux.org/blog/index.xml"
 }
 
 # Structure de base du fichier HTML pour chaque flux
@@ -107,7 +108,8 @@ for key, url in rss_urls.items():
         "docker": "Docker",
         "kubernetes": "Kubernetes",
         "RHEL": "RHEL",
-        "JDHacker": "JDHacker"
+        "JDHacker": "JDHacker",
+        "Almalinux": "Almalinux"
     }[key]
     html_content = generate_html(feed, title)
     
@@ -167,6 +169,9 @@ index_html = """
     </div>
     <div class="link">
         <a href="flux/JDhacker.html">Flux RSS JDhacker</a>
+    </div>
+    <div class="link">
+        <a href="flux/Almalinux.html">Flux RSS Almalinux</a>
     </div>
 </body>
 </html>
