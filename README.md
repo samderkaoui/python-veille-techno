@@ -4,7 +4,6 @@
 ---
 
 ## Ajout nouveau flux RSS
-
 1. Ouvrez le fichier contenant le script Python.
 
 2. Localisez le dictionnaire `rss_urls` au début du script. Il contient toutes les URLs RSS actuelles.
