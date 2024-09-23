@@ -2,7 +2,7 @@
 
 
 
-## Pour ajouter une nouvelle URL RSS au script existant sans modifier sa structure, voici les étapes à suivre :
+```Pour ajouter une nouvelle URL RSS au script existant sans modifier sa structure, voici les étapes à suivre :```
 
 1. Ouvrez le fichier contenant le script Python.
 
