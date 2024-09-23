@@ -1,8 +1,9 @@
+# Description
 **Ce script Python agrège et formate des flux RSS provenant de diverses sources tech et sécurité. Il génère des pages HTML individuelles pour chaque flux dans un dossier 'flux', ainsi qu'une page d'index à la racine, offrant une vue d'ensemble facilement consultable des dernières actualités de ces domaines.**
 
 ---
 
-`Pour ajouter une nouvelle URL RSS au script existant sans modifier sa structure, voici les étapes à suivre :`
+## Ajout nouveau flux RSS
 
 1. Ouvrez le fichier contenant le script Python.
 
