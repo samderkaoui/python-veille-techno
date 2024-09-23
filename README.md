@@ -14,6 +14,8 @@ docker/kubernetes
 developpez.com/devops.com/Journalduhacker/AWS devops
 # Sécurité
 CERT-FR
+# Cloud
+AWS feed
 ```
 
 ---
