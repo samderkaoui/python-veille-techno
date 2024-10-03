@@ -6,7 +6,7 @@
 `pip install feedparser bs4`
 
 
-+ Flux concernés :
+## Flux concernés :
 ```
 # Linux
 Almalinux/RHEL/Debian
