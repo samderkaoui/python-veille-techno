@@ -2,7 +2,7 @@
 **Ce script Python agrège et formate des flux RSS provenant de diverses sources tech et sécurité. Il génère des pages HTML individuelles pour chaque flux dans un dossier 'flux', ainsi qu'une page d'index à la racine, offrant une vue d'ensemble facilement consultable des dernières actualités de ces domaines.**
 
 ## Requirement
-`pip install feedparser bs4`
+`pip install feedparser bs4 escape datetime`
 
 
 ## Flux concernés :
