@@ -26,6 +26,13 @@ jobs:
 
 workflows:
   version: 2
-  manual-run:
+  daily-run:
+    triggers:
+      - schedule:
+          cron: "0 8 * * *" # Tous les jours à 08h00 UTC
+          filters:
+            branches:
+              only:
+                - main
     jobs:
       - run-script
