@@ -1,0 +1,31 @@
+version: 2.1
+
+jobs:
+  run-script:
+    docker:
+      - image: ubuntu:latest
+    steps:
+      - checkout
+
+      - run:
+          name: Install Python and dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y python3 python3-pip
+            pip3 install -r requirements.txt
+
+      - run:
+          name: Run the RSS script
+          command: python3 veille.py
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - index.html
+            - flux/*.html
+
+workflows:
+  version: 2
+  manual-run:
+    jobs:
+      - run-script
