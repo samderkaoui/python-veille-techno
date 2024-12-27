@@ -1,6 +1,9 @@
 name: Daily RSS Feed Generation
 
 on:
+  push: # Déclenche le workflow à chaque push sur la branche principale et active le check vert
+    branches:
+      - main
   schedule:
     - cron: '0 8 * * *' # Tous les jours à 08h00 UTC
   workflow_dispatch: # Permet un déclenchement manuel si nécessaire
