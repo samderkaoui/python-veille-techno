@@ -36,3 +36,7 @@ workflows:
                 - main
     jobs:
       - run-script
+
+  manual-run:
+    jobs:
+      - run-script
