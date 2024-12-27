@@ -36,10 +36,10 @@ jobs:
 
       - store_artifacts:
           path: flux/
-          destination: rss_flux
+          destination: flux
       - store_artifacts:
           path: index.html
-          destination: root_index
+          destination: index.html
 
 workflows:
   version: 2
