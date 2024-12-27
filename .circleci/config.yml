@@ -20,7 +20,7 @@ jobs:
             DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata python3 python3-pip
 
             # Crée un environnement virtuel
-            python3.10 -m venv circlecienv
+            python3 -m venv circlecienv
             source circlecienv/bin/activate
 
             # Installe les dépendances dans l'environnement virtuel
