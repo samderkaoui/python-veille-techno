@@ -17,7 +17,7 @@ jobs:
           name: Install Python and dependencies
           command: |
             apt-get update
-            DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata python3.10
+            DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata python3 python3-pip
 
             # Crée un environnement virtuel
             python3.10 -m venv circlecienv
