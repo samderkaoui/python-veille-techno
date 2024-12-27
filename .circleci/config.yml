@@ -33,11 +33,13 @@ jobs:
             source circlecienv/bin/activate
             python veille.py
 
-      - persist_to_workspace:
-          root: .
-          paths:
-            - index.html
-            - flux/*.html
+
+      - store_artifacts:
+          path: flux/
+          destination: rss_flux
+      - store_artifacts:
+          path: index.html
+          destination: root_index
 
 workflows:
   version: 2
