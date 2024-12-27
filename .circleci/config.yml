@@ -19,8 +19,7 @@ jobs:
             apt-get update
             DEBIAN_FRONTEND=noninteractive apt-get install -y \
               tzdata \
-              python3.10 \
-              python3.10-venv
+              python3.10
 
             # Crée un environnement virtuel
             python3.10 -m venv circlecienv
