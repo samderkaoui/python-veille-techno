@@ -17,13 +17,24 @@ jobs:
           name: Install Python and dependencies
           command: |
             apt-get update
-            DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
-            apt install -y python
-            pip3 install -r requirements.txt
+            DEBIAN_FRONTEND=noninteractive apt-get install -y \
+              tzdata \
+              python3.10 \
+              python3.10-venv
+
+            # Crée un environnement virtuel
+            python3.10 -m venv circlecienv
+            source circlecienv/bin/activate
+
+            # Installe les dépendances dans l'environnement virtuel
+            pip install --upgrade pip
+            pip install -r requirements.txt
 
       - run:
           name: Run the RSS script
-          command: python3 veille.py
+          command: |
+            source circlecienv/bin/activate
+            python veille.py
 
       - persist_to_workspace:
           root: .
