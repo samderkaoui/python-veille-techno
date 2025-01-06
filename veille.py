@@ -127,61 +127,100 @@ index_html = """
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index des Flux RSS</title>
     <style>
-        body {{
-            font-family: Arial, sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
             text-align: center;
-        }}
-        .link {{
-            margin: 20px;
-        }}
+        }
+        .feed-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+            justify-content: center;
+        }
+        .feed-item {
+            background: #e9ecef;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: #333;
+        }
+        .feed-item:hover {
+            transform: scale(1.05);
+            background: #3498db;
+            color: white;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Index des Flux RSS</h1>
-    <div class="link">
-        <a href="flux/cert.html">Flux RSS CERT-FR</a>
-    </div>
-    <div class="link">
-        <a href="flux/developpez.html">Flux RSS Developpez.com</a>
-    </div>
-    <div class="link">
-        <a href="flux/devops.html">Flux RSS DevOps.com</a>
-    </div>
-    <div class="link">
-        <a href="flux/aws_devops.html">Flux RSS AWS DevOps</a>
-    </div>
-    <div class="link">
-        <a href="flux/hashicorp_terraform.html">Flux RSS HashiCorp Terraform</a>
-    </div>
-    <div class="link">
-        <a href="flux/hashicorp_consul.html">Flux RSS HashiCorp Consul</a>
-    </div>
-    <div class="link">
-        <a href="flux/hashicorp_vault.html">Flux RSS HashiCorp Vault</a>
-    </div>
-    <div class="link">
-        <a href="flux/docker.html">Flux RSS Docker</a>
-    </div>
-    <div class="link">
-        <a href="flux/kubernetes.html">Flux RSS Kubernetes</a>
-    </div>
-    <div class="link">
-        <a href="flux/RHEL.html">Flux RSS RHEL</a>
-    </div>
-    <div class="link">
-        <a href="flux/JDhacker.html">Flux RSS JDhacker</a>
-    </div>
-    <div class="link">
-        <a href="flux/Almalinux.html">Flux RSS Almalinux</a>
-    </div>
-    <div class="link">
-        <a href="flux/Debian.html">Flux RSS Debian</a>
-    </div>
-    <div class="link">
-        <a href="flux/AWS.html">Flux RSS AWS</a>
+    <div class="container">
+        <h1>Index des Flux RSS</h1>
+        <div class="feed-list">
+            <a href="flux/cert.html" class="feed-item">CERT-FR</a>
+            <a href="flux/developpez.html" class="feed-item">Developpez.com</a>
+            <a href="flux/devops.html" class="feed-item">DevOps.com</a>
+            <a href="flux/aws_devops.html" class="feed-item">AWS DevOps</a>
+            <a href="flux/hashicorp_terraform.html" class="feed-item">HashiCorp Terraform</a>
+            <a href="flux/hashicorp_consul.html" class="feed-item">HashiCorp Consul</a>
+            <a href="flux/hashicorp_vault.html" class="feed-item">HashiCorp Vault</a>
+            <a href="flux/docker.html" class="feed-item">Docker</a>
+            <a href="flux/kubernetes.html" class="feed-item">Kubernetes</a>
+            <a href="flux/RHEL.html" class="feed-item">RHEL</a>
+            <a href="flux/JDhacker.html" class="feed-item">JDHacker</a>
+            <a href="flux/Almalinux.html" class="feed-item">Almalinux</a>
+            <a href="flux/Debian.html" class="feed-item">Debian</a>
+            <a href="flux/AWS.html" class="feed-item">AWS</a>
+        </div>
     </div>
 </body>
 </html>
