@@ -29,8 +29,6 @@ if BYPASS_SSL:
 # URLs des flux RSS
 rss_urls = {
     "cert": "https://www.cert.ssi.gouv.fr/feed/",
-    "developpez": "https://www.developpez.com/index/rss",
-    "devops": "https://devops.com/feed/",
     "aws_devops": "https://aws.amazon.com/fr/blogs/devops/feed/",
     "hashicorp_terraform": "https://www.hashicorp.com/blog/products/terraform/feed.xml",
     "hashicorp_consul": "https://www.hashicorp.com/blog/products/consul/feed.xml",
@@ -38,10 +36,15 @@ rss_urls = {
     "docker": "https://www.docker.com/feed/",
     "kubernetes": "https://kubernetes.io/feed.xml",
     "RHEL": "https://www.redhat.com/en/rss/blog",
-    "JDHacker": "https://www.journalduhacker.net/rss",
     "Almalinux": "https://almalinux.org/blog/index.xml",
     "Debian": "https://www.debian.org/News/news",
-    "AWS": "https://aws.amazon.com/fr/blogs/aws/feed/"
+    "AWS": "https://aws.amazon.com/fr/blogs/aws/feed/",
+    "developpez_entreprise": "http://solutions-entreprise.developpez.com/index/rss",
+    "developpez_cloud": "http://cloud-computing.developpez.com/index/rss",
+    "developpez_ia": "https://intelligence-artificielle.developpez.com/index/rss",
+    "developpez_systeme": "http://systeme.developpez.com/index/rss",
+    "google_cloud": "https://medium.com/feed/google-cloud",
+    "developpez_securite": "https://securite.developpez.com/index/rss"
 }
 
 # Structure de base du fichier HTML pour chaque flux
@@ -157,8 +160,6 @@ for key, url in rss_urls.items():
         
         title = {
             "cert": "CERT-FR",
-            "developpez": "Developpez.com",
-            "devops": "DevOps.com",
             "aws_devops": "AWS DevOps",
             "hashicorp_terraform": "HashiCorp Terraform",
             "hashicorp_consul": "HashiCorp Consul",
@@ -166,10 +167,15 @@ for key, url in rss_urls.items():
             "docker": "Docker",
             "kubernetes": "Kubernetes",
             "RHEL": "RHEL",
-            "JDHacker": "JDHacker",
             "Almalinux": "Almalinux",
             "Debian": "Debian",
-            "AWS": "AWS"
+            "AWS": "AWS",
+            "developpez_entreprise": "Developpez Entreprise",
+            "developpez_cloud": "Developpez Cloud",
+            "developpez_ia": "Developpez IA",
+            "developpez_systeme": "Developpez Système",
+            "google_cloud": "Google Cloud",
+            "developpez_securite": "Developpez Sécurité"
         }[key]
         html_content = generate_html(feed, title)
         
@@ -203,9 +209,10 @@ index_html_template = """
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }}
         .container {{
-            max-width: 800px;
+            max-width: 900px;
             margin: 2rem;
             padding: 2rem;
             background: white;
@@ -223,7 +230,7 @@ index_html_template = """
                 opacity: 1;
             }}
         }}
-        h1, h2 {{
+        h1, h2, h3 {{
             color: #2c3e50;
             margin-bottom: 1rem;
             text-align: center;
@@ -234,6 +241,16 @@ index_html_template = """
         h2 {{
             font-size: 1.8rem;
             margin-top: 1.5rem;
+        }}
+        h3 {{
+            font-size: 1.3rem;
+            margin-top: 1rem;
+            color: #34495e;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }}
+        .feed-section {{
+            margin-bottom: 20px;
         }}
         .feed-list, .archive-list {{
             display: flex;
@@ -273,21 +290,58 @@ index_html_template = """
 <body>
     <div class="container">
         <h1>Index des Flux RSS</h1>
-        <div class="feed-list">
-            <a href="flux/cert.html" class="feed-item">CERT-FR</a>
-            <a href="flux/developpez.html" class="feed-item">Developpez.com</a>
-            <a href="flux/devops.html" class="feed-item">DevOps.com</a>
-            <a href="flux/aws_devops.html" class="feed-item">AWS DevOps</a>
-            <a href="flux/hashicorp_terraform.html" class="feed-item">HashiCorp Terraform</a>
-            <a href="flux/hashicorp_consul.html" class="feed-item">HashiCorp Consul</a>
-            <a href="flux/hashicorp_vault.html" class="feed-item">HashiCorp Vault</a>
-            <a href="flux/docker.html" class="feed-item">Docker</a>
-            <a href="flux/kubernetes.html" class="feed-item">Kubernetes</a>
-            <a href="flux/RHEL.html" class="feed-item">RHEL</a>
-            <a href="flux/JDhacker.html" class="feed-item">JDHacker</a>
-            <a href="flux/Almalinux.html" class="feed-item">Almalinux</a>
-            <a href="flux/Debian.html" class="feed-item">Debian</a>
-            <a href="flux/AWS.html" class="feed-item">AWS</a>
+        
+        <div class="feed-section">
+            <h3>Sécurité</h3>
+            <div class="feed-list">
+                <a href="flux/cert.html" class="feed-item">CERT-FR</a>
+                <a href="flux/developpez_securite.html" class="feed-item">Developpez Sécurité</a>
+            </div>
+        </div>
+        
+        <div class="feed-section">
+            <h3>Cloud</h3>
+            <div class="feed-list">
+                <a href="flux/aws_devops.html" class="feed-item">AWS DevOps</a>
+                <a href="flux/AWS.html" class="feed-item">AWS</a>
+                <a href="flux/google_cloud.html" class="feed-item">Google Cloud</a>
+            </div>
+        </div>
+        
+        <div class="feed-section">
+            <h3>Développement</h3>
+            <div class="feed-list">
+                <a href="flux/developpez_entreprise.html" class="feed-item">Developpez Entreprise</a>
+                <a href="flux/developpez_cloud.html" class="feed-item">Developpez Cloud</a>
+                <a href="flux/developpez_ia.html" class="feed-item">Developpez IA</a>
+            </div>
+        </div>
+        
+        <div class="feed-section">
+            <h3>Conteneurisation</h3>
+            <div class="feed-list">
+                <a href="flux/docker.html" class="feed-item">Docker</a>
+                <a href="flux/kubernetes.html" class="feed-item">Kubernetes</a>
+            </div>
+        </div>
+        
+        <div class="feed-section">
+            <h3>Système</h3>
+            <div class="feed-list">
+                <a href="flux/RHEL.html" class="feed-item">RHEL</a>
+                <a href="flux/Almalinux.html" class="feed-item">Almalinux</a>
+                <a href="flux/Debian.html" class="feed-item">Debian</a>
+                <a href="flux/developpez_systeme.html" class="feed-item">Developpez Système</a>
+            </div>
+        </div>
+        
+        <div class="feed-section">
+            <h3>HashiCorp</h3>
+            <div class="feed-list">
+                <a href="flux/hashicorp_terraform.html" class="feed-item">HashiCorp Terraform</a>
+                <a href="flux/hashicorp_consul.html" class="feed-item">HashiCorp Consul</a>
+                <a href="flux/hashicorp_vault.html" class="feed-item">HashiCorp Vault</a>
+            </div>
         </div>
         
         <h2>Archives</h2>
