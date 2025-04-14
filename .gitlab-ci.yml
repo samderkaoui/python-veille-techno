@@ -1,0 +1,18 @@
+# SCHEDULE REQUIS: Tous les jours à minuit (0 0 * * *)
+# Ce schedule doit être configuré manuellement dans:
+# GitLab > CI/CD > Schedules > New schedule
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+
+stages:
+  - update
+
+update-rss-feeds:
+  stage: update
+  script:
+    - ssh user@your-vm-address "cd /path/to/script && python archive_and_update.py"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: always
