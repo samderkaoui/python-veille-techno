@@ -1,4 +1,4 @@
-name: Daily RSS Feed Generation
+name: Daily RSS Feed Generation2
 
 on:
   push: # Déclenche le workflow à chaque push sur la branche principale et active le check vert
